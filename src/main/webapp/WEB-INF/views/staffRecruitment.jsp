@@ -51,11 +51,11 @@
 				 	<p class="formValue">${staffFormListByFno.recruitmentTO} 명</p>
 					<p class="formKey">모집분야</p>
 					<p class="formValue">
-						<c:forEach var="Code" items="${commonCodeList}">
-							<c:set var="recruitmentField" value="${staffFormListByFno.recruitmentField}" />
-							<c:if test="${recruitmentField == Code.codeType}">
-			        			${Code.codeName}
-			    			</c:if>
+						<c:set var="recruitmentField" value="${staffFormListByFno.recruitmentField}" />
+						<c:forEach var="code" items="${commonCodeList}">
+						  <c:if test="${recruitmentField.contains(code.codeType)}">
+						    ${code.codeName}
+						  </c:if>
 						</c:forEach>
 					</p>
 					<p class="formKey">우대사항</p>
@@ -92,12 +92,12 @@
 				 	<div class="inputContainer">
 					<p class="formKey">지원분야</p>
 					<p class="formValue">
-							 <input type="radio" name="recruitmentField" id="rf1" value="rf1" checked="checked" />
-							 <label for="rf1">안내 도우미</label>
-							 <input type="radio" name="recruitmentField" id="rf2" value="rf2" />
-							 <label for="rf2">안전요원</label>
-							 <input type="radio" name="recruitmentField" id="rf0" value="rf0" />
-							 <label for="rf0">기타</label>
+						<input type="radio" name="recruitmentField" id="rf1" value="rf1" checked="checked" />
+						<label for="rf1">안내 도우미</label>
+						<input type="radio" name="recruitmentField" id="rf2" value="rf2" />
+						<label for="rf2">안전요원</label>
+						<input type="radio" name="recruitmentField" id="rf0" value="rf0" />
+						<label for="rf0">기타</label>
 					</p>
 					</div>
 				</div>

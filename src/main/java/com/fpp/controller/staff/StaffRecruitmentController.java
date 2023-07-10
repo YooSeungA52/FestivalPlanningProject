@@ -83,6 +83,11 @@ public class StaffRecruitmentController {
 	        redirectAttributes.addFlashAttribute("errorRecruitmentTO", " *모집 인원을 입력해 주세요.");
 	    }
 	    //모집분야
+	    if (staffDto.getRecruitmentField() == null) {
+	        bindingResult.addError(new FieldError("staffDto", "recruitmentField", "모집 분야를 선택해 주세요."));
+	        redirectAttributes.addFlashAttribute("errorRecruitmentField", "모집 분야를 선택해 주세요.");
+	    }
+	    //모집기간
 	    if (staffDto.getApplicationPeriod() == null) {
 	        bindingResult.addError(new FieldError("staffDto", "applicationPeriod", "접수 기간을 입력해 주세요."));
 	        redirectAttributes.addFlashAttribute("errorApplicationPeriod", "접수 기간을 입력해 주세요.");
@@ -153,6 +158,13 @@ public class StaffRecruitmentController {
 	    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	    
 	    try {
+	    	//로그인 상태
+	    	if (session.getAttribute("loginId") == null) {
+	    		redirectAttributes.addFlashAttribute("errorLogin", "로그인 후 이용 가능합니다.");
+	    		
+	    		return "redirect:/staffRecruitment?fno=" + fno;
+	    	}
+	    	
 	        LocalDate startDate = LocalDate.parse(staffApplyDto.getSupportPeriodStart(), dateFormatter);
 	        LocalDate endDate = LocalDate.parse(staffApplyDto.getSupportPeriodEnd(), dateFormatter);
 	        //지원기간
@@ -162,17 +174,11 @@ public class StaffRecruitmentController {
 	            return "redirect:/staffRecruitment?fno=" + fno;
 	        }
 	        //지원분야
-			if(!staffFormListByFno.getRecruitmentField().equals(staffApplyDto.getRecruitmentField())) {
+			if(!staffFormListByFno.getRecruitmentField().contains(staffApplyDto.getRecruitmentField())) {
 				redirectAttributes.addFlashAttribute("errorRecruitmentField", "지원할 수 없는 분야입니다.");
 				
 				return "redirect:/staffRecruitment?fno=" + fno;
 			}
-			//로그인 상태
-			if (session.getAttribute("loginId") == null) {
-		        redirectAttributes.addFlashAttribute("errorLogin", "로그인 후 이용 가능합니다.");
-		        
-		        return "redirect:/staffRecruitment?fno=" + fno;
-		    }
 	        
 	        //유효성 검증 성공 시, 스탭 신청
 			staffService.staffRecruitmentApply(staffApplyDto);

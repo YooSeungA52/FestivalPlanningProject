@@ -71,14 +71,17 @@
 						</c:if>
 						<!-- 모집인원 화면 출력시 input 기본값 소수점 없애기 -->
 						<fmt:parseNumber var="recruitmentTO_value" value="${recruitmentTO_value/10}" integerOnly="true" />
-						<input type="number" class="inputText" name="recruitmentTO" value="${recruitmentTO_value}"/> <!--  required="required" -->
+						<input type="number" class="inputText" name="recruitmentTO" value="${recruitmentTO_value}"/>
 					</p>
 					
 					<p class="formKey">모집분야</p>
 					<p class="formValue">
-						<input type="radio" name="recruitmentField" id="rf1" value="rf1" checked="checked" /><label for="rf1"> 안내 도우미 </label>
-						<input type="radio" name="recruitmentField" id="rf2" value="rf2" /><label for="rf2"> 안전요원 </label>
-						<input type="radio" name="recruitmentField" id="rf0" value="rf0" /><label for="rf0"> 기타</label>
+						<input type="checkbox" name="recruitmentField" id="rf1" value="rf1" />
+						<label for="rf1">안내 도우미</label>
+						<input type="checkbox" name="recruitmentField" id="rf2" value="rf2" />
+						<label for="rf2">안전요원</label>
+						<input type="checkbox" name="recruitmentField" id="rf0" value="rf0" />
+						<label for="rf0">기타</label>
 					</p>
 					<p class="formKey">우대사항</p>
 					<p class="formValue borderBottom"><input type="text" class="inputText" name="preferentialTreatment" placeholder="해당사항을 적어주세요"/></p>
@@ -101,10 +104,9 @@
 	
 	
 <script>
-    var errorFno = "${errorFno}";
-    if (errorFno) {
-        alert(errorFno);
-        location.href ="staffRecruitmentList";
+    var errorRecruitmentField = "${errorRecruitmentField}";
+    if (errorRecruitmentField) {
+        alert(errorRecruitmentField);
     }
     var successUpload = "${successUpload}";
     if (successUpload) {
