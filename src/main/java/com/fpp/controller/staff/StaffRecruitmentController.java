@@ -48,6 +48,10 @@ public class StaffRecruitmentController {
 	    //해당 축제 데이터 가져오기
 	    FormDto formDto = boardService.read(fno);
 	    model.addAttribute("formDto", formDto);
+	    
+		//코드 테이블
+		List<CommonCodeDto> commonCodeList = commonCodeService.getCommonCodeList();
+		model.addAttribute("commonCodeList", commonCodeList);
 		
 		return "staffRecruitment_form";
 	}
@@ -190,6 +194,10 @@ public class StaffRecruitmentController {
 		
 		List<StaffApplyListDto> staffApplyList = staffService.getStaffApplyList();
 		model.addAttribute("staffApplyList", staffApplyList);
+		
+		//코드 테이블
+		List<CommonCodeDto> commonCodeList = commonCodeService.getCommonCodeList();
+		model.addAttribute("commonCodeList", commonCodeList);
 		
 		return "staffApplyList";
 	}

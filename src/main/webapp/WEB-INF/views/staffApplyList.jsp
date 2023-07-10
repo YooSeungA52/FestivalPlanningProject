@@ -12,7 +12,6 @@
 </head>
 <body>
 	<div class="container">
-		<!-- header 추가한 뒤 간격 조정하기 -->
 		<h3>스탭 신청 내역</h3>
 		
 
@@ -21,21 +20,28 @@
 				<tr>
 					<th scope="row">축제 이름</th>
 					<th>주소</th>
+					<th>장소 구분</th>
 					<th>지원 기간</th>
 					<th>지원 분야</th>
-					<th>수정</th>
 				</tr>
-					<c:forEach items="${list}" var="staffApplyList">
+					<c:forEach var="list" items="${staffApplyList}">
 					<c:if test="${sessionScope.loginId == list.id}">
 					<tr>
 						<td scope="row">${list.festivalName}</td>
-						<td>${list.place}</td>
+						<td>${list.addressEvent}</td>
+						<td><%-- ${list.place} --%>
+							<c:forEach var="Code" items="${commonCodeList}">
+							<c:set var="place" value="${list.place}" />
+							<c:if test="${place == Code.codeType}">
+			        			${Code.codeName}
+			    			</c:if>
+						</c:forEach>
+						</td>
 						<td>${list.supportPeriodStart} ~ ${list.supportPeriodEnd}</td>
 						<td>${list.codeName}</td>
-						<td><a href="#" class="custom-button">수정</a></td>
 					</tr>
 					</c:if>
-					</c:forEach>
+					</c:forEach> 
 
 			</tbody>
 		</table>

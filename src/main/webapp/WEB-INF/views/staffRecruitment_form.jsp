@@ -26,16 +26,12 @@
 					<p class="formValue">${formDto.addressEvent}</p>
 					<p class="formKey">장소구분</p>
 					<p class="formValue">
-						<c:set var="place" value="${formDto.place}" />
-						<c:if test="${place == 'inside'}">
-							실내
-						</c:if>
-						<c:if test="${place == 'outdoors'}">
-							실외
-						</c:if>
-						<c:if test="${place == 'inAndOut'}">
-							실내 + 실외
-						</c:if>
+						<c:forEach var="Code" items="${commonCodeList}">
+							<c:set var="place" value="${formDto.place}" />
+							<c:if test="${place == Code.codeType}">
+			        			${Code.codeName}
+			    			</c:if>
+						</c:forEach>
 					</p>
 					<p class="formKey">축제 기간</p>
 					<p class="formValue">
