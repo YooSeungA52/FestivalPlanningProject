@@ -33,7 +33,7 @@
 						<th>운영 기관</th>
 						<th>축제 시작 일자</th>
 						<th>축제 종료 일자</th>
-						<th>작성자</th>
+<!-- 						<th>작성자</th> -->
 						<th>수정</th>
 					</tr>
 
@@ -47,8 +47,7 @@
 								<td><c:out value="${list.commissioningAgency}" /></td>
 								<td><c:out value="${list.startDate.split(' ')[0]}" /></td>
 								<td><c:out value="${list.endDate.split(' ')[0]}" /></td>
-								<td><c:out value="${list.writer}" /></td>
-
+<%-- 								<td><c:out value="${list.writer}" /></td> --%>
 								<c:if test="${sessionScope.loginId == list.writer}">
 									<td><a
 										href="/updateView?fno=${list.fno}&page=${scri.page}

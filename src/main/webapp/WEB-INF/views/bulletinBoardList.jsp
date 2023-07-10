@@ -30,7 +30,7 @@
 						<th>번호</th>
 						<th>문의 종류</th>
 						<th>제목</th>
-						<th>내용</th>
+<!-- 						<th>내용</th> -->
 						<th>작성자</th>
 						<th>등록일</th>
 						<th>수정</th>
@@ -42,7 +42,7 @@
 							<td><c:out value="${selectBulletinBoardList.bno}" /></td>
 							<td><c:out value="${selectBulletinBoardList.typeOfInquiry}" /></td>
 							<td><c:out value="${selectBulletinBoardList.title}" /></td>
-							<td><c:out value="${selectBulletinBoardList.content}" /></td>
+<%-- 							<td><c:out value="${selectBulletinBoardList.content}" /></td> --%>
 							<td><c:out value="${selectBulletinBoardList.writer}" /></td>
 							<td><fmt:formatDate
 									value="${selectBulletinBoardList.regdate}" pattern="yyyy-MM-dd" /></td>

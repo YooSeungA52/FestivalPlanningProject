@@ -26,7 +26,7 @@
 					<th>연락처</th>
 					<th>메일</th>
 				</tr>
-					<c:forEach var="list" items="${staffApplyList}">
+				<c:forEach var="list" items="${staffApplyList}">
 					<tr>
 						<td scope="row">${list.festivalName}</td>
 						<td>${list.name}</td>
@@ -42,7 +42,7 @@
 						<td>${list.telNumber}</td>
 						<td>${list.email}</td>
 					</tr>
-					</c:forEach> 
+				</c:forEach> 
 			</tbody>
 		</table>
 	</div>

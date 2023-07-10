@@ -45,7 +45,7 @@
 						href="list">행사문의</a></li>
 					<li class="nav-item"><a class="nav-link active fs-5" href="staffRecruitmentList">채용공고</a></li>
 					<li class="nav-item"><a class="nav-link active fs-5"
-						href="bulletinBoardList">게시판</a></li>
+						href="bulletinBoardList">Q&A</a></li>
 				</ul>
 				<!-- Button trigger modal -->
 <!-- 				<div class="search-btnbox">

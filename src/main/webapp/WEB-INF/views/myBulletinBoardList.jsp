@@ -31,7 +31,7 @@
 						<th>문의 종류</th>
 						<th>제목</th>
 						<th>내용</th>
-						<th>작성자</th>
+<!-- 						<th>작성자</th> -->
 						<th>등록일</th>
 						<th>수정</th>
 					</tr>
@@ -46,7 +46,7 @@
 								<td><c:out value="${selectBulletinBoardList.typeOfInquiry}" /></td>
 								<td><c:out value="${selectBulletinBoardList.title}" /></td>
 								<td><c:out value="${selectBulletinBoardList.content}" /></td>
-								<td><c:out value="${selectBulletinBoardList.writer}" /></td>
+<%-- 								<td><c:out value="${selectBulletinBoardList.writer}" /></td> --%>
 								<td><fmt:formatDate
 										value="${selectBulletinBoardList.regdate}"
 										pattern="yyyy-MM-dd" /></td>
@@ -59,7 +59,6 @@
 								&keyword=${scri.keyword}"
 										class="custom-button">수정</a></td>
 								</c:if>
-
 							</tr>
 						</c:if>
 					</c:forEach>
