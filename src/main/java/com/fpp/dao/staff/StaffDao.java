@@ -25,4 +25,7 @@ public interface StaffDao {
 	
 	//스탭 신청 리스트 조회
 	public List<StaffApplyListDto> selectStaffApplyList();
+	
+	//스탭 신청 리스트 조회 by fno
+	public List<StaffApplyListDto> selectStaffApplyListByFno(int fno);
 }

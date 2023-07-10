@@ -7,6 +7,7 @@ import lombok.Data;
 
 @Data
 public class StaffApplyListDto {
+	int fno;
 	String festivalName;
 	String addressEvent;
 	String place;
@@ -14,4 +15,8 @@ public class StaffApplyListDto {
 	String supportPeriodStart;
 	String supportPeriodEnd;
 	String codeName;
+	String name;
+	String birth;
+	String telNumber;
+	String email;
 }

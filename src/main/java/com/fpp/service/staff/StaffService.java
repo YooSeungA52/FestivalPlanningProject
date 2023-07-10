@@ -25,4 +25,7 @@ public interface StaffService {
 	
 	//스탭 신청 리스트 조회
 	public List<StaffApplyListDto> getStaffApplyList();
+	
+	//스탭 신청 리스트 조회 by fno
+	public List<StaffApplyListDto> getStaffApplyListByFno(int fno);
 }

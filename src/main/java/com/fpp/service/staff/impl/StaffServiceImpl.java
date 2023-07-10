@@ -74,4 +74,13 @@ public class StaffServiceImpl implements StaffService {
 		return list;
 	}
 
+	@Override
+	public List<StaffApplyListDto> getStaffApplyListByFno(int fno) {
+		// TODO Auto-generated method stub
+
+		List<StaffApplyListDto> list = staffDao.selectStaffApplyListByFno(fno);
+		
+		return list;
+	}
+
 }

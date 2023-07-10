@@ -106,7 +106,7 @@
 											<li><a class="dropdown-item" href="myBulletinBoardList">나의 문의 내역</a></li>
 											<li><hr class="dropdown-divider"></li>
 											
-											<li><a class="dropdown-item" href="staffApplyList">나의 스탭 신청 내역</a></li>
+											<li><a class="dropdown-item" href="staffApplyUser">나의 스탭 신청 내역</a></li>
 											<li><hr class="dropdown-divider"></li>
 										
 											<li><a class="dropdown-item" href="pwcheck">회원정보 수정</a></li>

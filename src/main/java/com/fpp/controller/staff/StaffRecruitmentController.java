@@ -188,11 +188,25 @@ public class StaffRecruitmentController {
 	    return "redirect:/staffRecruitment?fno=" + fno;
 	}
 	
-	
-	@GetMapping("/staffApplyList")
-	public String staffApplyList(Model model) {
+	//회원 - 스탭 신청 내역
+	@GetMapping("/staffApplyUser")
+	public String staffApplyUser(Model model) {
 		
 		List<StaffApplyListDto> staffApplyList = staffService.getStaffApplyList();
+		model.addAttribute("staffApplyList", staffApplyList);
+		
+		//코드 테이블
+		List<CommonCodeDto> commonCodeList = commonCodeService.getCommonCodeList();
+		model.addAttribute("commonCodeList", commonCodeList);
+		
+		return "staffApplyUser";
+	}
+	
+	//관리자 - 스탭 신청 내역
+	@GetMapping("/staffApplyList")
+	public String staffApplyList(@RequestParam("fno") int fno, Model model) {
+		
+		List<StaffApplyListDto> staffApplyList = staffService.getStaffApplyListByFno(fno);
 		model.addAttribute("staffApplyList", staffApplyList);
 		
 		//코드 테이블

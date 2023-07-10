@@ -77,4 +77,14 @@ public class StaffDaoImpl implements StaffDao {
 		return list;
 	}
 
+	@Override
+	public List<StaffApplyListDto> selectStaffApplyListByFno(int fno) {
+		// TODO Auto-generated method stub
+		
+		List<StaffApplyListDto> list =
+				sqlSessionTemplate.selectList("staff_mapper.select_staff_apply_list_by_fno", fno);
+		
+		return list;
+	}
+
 }

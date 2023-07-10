@@ -25,6 +25,7 @@
 					<th>축제 시작 일자</th>
 					<th>축제 종료 일자</th>
 					<th>모집 공고</th>
+					<th>스탭 신청</th>
 					<th>배치도</th>
 				</tr>
 				<c:forEach items="${list}" var="list">
@@ -34,10 +35,9 @@
 						<td>${list.commissioningAgency}</td>
 						<td>${list.startDate.split(' ')[0]}</td>
 						<td>${list.endDate.split(' ')[0]}</td>
-						<td><a href="/staffRecruitment_form?fno=${list.fno}" class="custom-button">업로드</a>
-						</td>
-						<td><a href="/blockPlan?fno=${list.fno}" class="custom-button">만들기</a>
-						</td>
+						<td><a href="/staffRecruitment_form?fno=${list.fno}" class="custom-button">업로드</a></td>
+						<td><a href="/staffApplyList?fno=${list.fno}" class="custom-button">확인</a></td>
+						<td><a href="/blockPlan?fno=${list.fno}" class="custom-button">만들기</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

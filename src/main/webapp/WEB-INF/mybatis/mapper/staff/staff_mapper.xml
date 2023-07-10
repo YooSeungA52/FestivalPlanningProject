@@ -47,11 +47,28 @@
 	
 	<!-- 스탭 신청 내역 리스트 -->
 	<select id="select_staff_apply_list" resultType="StaffApplyListDto">
-		SELECT ff.festival_name, ff.address_event, ff.place,
+	    SELECT ff.fno, ff.festival_name, ff.address_event, ff.place,
+		        sra.id, sra.support_period_start, sra.support_period_end,
+		        cc.code_name, fu.NAME, fu.BIRTH, fu.TEL_NUMBER, fu.EMAIL
+		FROM FESTIVAL_FORM ff, staff_recruitment_apply sra, common_code cc, f_user fu
+		WHERE ff.fno = sra.srno AND sra.recruitment_field = cc.code_type AND sra.id = fu.LOGIN_ID
+	</select>
+	
+	<!-- 스탭 신청 내역 리스트 by fno -->
+	<select id="select_staff_apply_list_by_fno" parameterType="int" resultType="StaffApplyListDto">
+	    SELECT ff.fno, ff.festival_name, ff.address_event, ff.place,
+		        sra.id, sra.support_period_start, sra.support_period_end,
+		        cc.code_name, fu.NAME, fu.BIRTH, fu.TEL_NUMBER, fu.EMAIL
+		FROM FESTIVAL_FORM ff, staff_recruitment_apply sra, common_code cc, f_user fu
+		WHERE ff.fno = sra.srno AND sra.recruitment_field = cc.code_type AND sra.id = fu.LOGIN_ID
+			  AND ff.fno = #{fno}
+	
+	
+<!-- 		SELECT ff.fno, ff.festival_name, ff.address_event, ff.place,
 		        sra.id, sra.support_period_start, sra.support_period_end,
 		        cc.code_name
 		FROM FESTIVAL_FORM ff, staff_recruitment_apply sra, common_code cc
-		WHERE ff.fno = sra.srno AND sra.recruitment_field = cc.code_type
+		WHERE ff.fno = sra.srno AND sra.recruitment_field = cc.code_type AND ff.fno = #{fno} -->
 	</select>
 	
 </mapper>
