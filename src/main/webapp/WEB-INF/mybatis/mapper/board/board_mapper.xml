@@ -102,7 +102,7 @@
 
 		start_date = #{startDate},
 		end_date = #{endDate},
-
+		place = #{place},
 		commissioning_agency =
 		#{commissioningAgency},
 		name = #{name}
