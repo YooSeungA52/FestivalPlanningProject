@@ -5,6 +5,7 @@
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
+<%@ include file="header.jsp"%>
 <head>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,7 +16,7 @@
 
 </head>
 <body>
-
+<div class="containerA">
 	<header>
 		<img src="images/신청 양식 이미지3.png" width="800" height="220">
 		<section class="header-wrap">
@@ -219,7 +220,7 @@
 
 		</form>
 	</main>
-
+</div>
 
 	<!-- 페이지 값 작성 / 댓글 -->
 	<script>

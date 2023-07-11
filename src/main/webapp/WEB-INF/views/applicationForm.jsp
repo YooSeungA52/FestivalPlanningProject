@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
+<%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <title>google form</title>
 </head>
 <body>
-
+<div class="containerA">
 	<header>
 		<img src="images/신청 양식 이미지1.png">
 		<section class="header-wrap">
@@ -163,7 +164,7 @@
 			</div>
 		</form>
 	</main>
-
+</div>
 
 	<!-- 유효성 검사 스크립트 -->
 	<script>
